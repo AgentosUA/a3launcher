@@ -1,4 +1,4 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
@@ -33,6 +33,21 @@ function createWindow(): void {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+
+  ipcMain.handle('choose-a3-path', async () => {
+    const result = await dialog.showOpenDialog(mainWindow, {
+      properties: ['openDirectory']
+    })
+
+    return result.filePaths
+  })
+
+  ipcMain.handle('start-a3', async (_, selectedPath: string) => {
+    // change to arma3.exe when it's ready
+    const a3Path = join(selectedPath, 'arma3launcher.exe')
+
+    shell.openExternal(a3Path)
+  })
 }
 
 // This method will be called when Electron has finished

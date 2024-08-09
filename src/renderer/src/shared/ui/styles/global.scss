@@ -1,1 +1,15 @@
 @import url('./reset.scss');
+
+@import url('./fonts.scss');
+
+body {
+  font-family: 'Roboto';
+
+  background: url('@renderer/shared/ui/assets/images/bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+}

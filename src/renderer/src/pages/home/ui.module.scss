@@ -3,12 +3,79 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
+  height: 100svh;
+}
 
-  background: url('@renderer/shared/ui/assets/images/bg.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 280px;
+  }
+}
+
+.main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 80vw;
+  max-width: 80svw;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 10px;
+  text-align: right;
+  color: grey;
+  font-weight: 500;
+}
+
+.actions {
+  margin: 150px auto 30px auto;
+  padding: 30px;
+  justify-content: center;
+  min-height: 250px;
+  width: 100%;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  background: rgba($color: #000, $alpha: 0.7);
+}
+
+.path {
+  padding: 15px;
+  background: #e9ec2b;
+  color: grey;
+}
+
+.install {
+  margin: 0 0 0 auto;
+  padding: 10px 20px;
+  width: 80vw;
+  width: 80svw;
+  height: 50px;
+  flex-shrink: 0;
+  max-width: 320px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background-color: #49be4d;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #3d9c40;
+    transition: background-color 0.3s;
+  }
+
+  &:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+  }
 }
